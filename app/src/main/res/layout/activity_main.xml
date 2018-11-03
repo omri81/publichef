@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/Main_Activity_RelativeLayout">
+
+
+    <!--<Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="clear"
+        android:id="@+id/clearBtn"
+        android:onClick="clearDb"/>-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleX="320"
+        android:scaleType="centerCrop"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Activity_Main_Recycler_View">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <com.melnykov.fab.FloatingActionButton
+
+        android:id="@+id/Activity_Main_Plus_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:adjustViewBounds="true"
+        android:background="@color/colorPrimaryDark"
+        android:cropToPadding="true"
+
+
+        android:scaleType="fitCenter"
+        android:src="@drawable/rsz_1rsz_plus_button" />
+</RelativeLayout>

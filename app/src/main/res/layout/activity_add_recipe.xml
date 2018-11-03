@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add New Recipe"
+                    style="@style/Base.TextAppearance.AppCompat.Headline"
+                    android:layout_centerInParent="true"
+                    android:textColor="#FF4D4D"
+                    android:textStyle="bold"
+                    />
+
+
+            </RelativeLayout>
+
+            <TableRow android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#FF4D4D">
+
+            </TableRow>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:hint="Chef's Name"
+                android:id="@+id/Activity_AddRecipe_Chef_Name"
+                android:inputType="text"
+                android:textColor="#FF4D4D"
+                android:textColorHint="#FF4D4D"
+                android:theme="@style/MyEditTextTheme"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:hint="Recipe Name"
+                android:id="@+id/Activity_AddRecipe_Recipe_Name"
+                android:inputType="text"
+                android:textColor="#FF4D4D"
+                android:textColorHint="#FF4D4D"
+                android:theme="@style/MyEditTextTheme"/>
+            <Spinner
+                android:id="@+id/Activity_AddRecipe_dish_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                >
+            </Spinner>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ingredients:"
+                    android:id="@+id/Activity_AddRecipe_Ingrdients_TV"
+                    android:textSize="17sp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="16dp"
+                    android:textColor="#FF4D4D"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="#FF4D4D">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ADD"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30dp"
+                        android:textColor="#FFFFFF"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/iconsplus32white"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginEnd="30dp"
+                        android:onClick="createNewIngredient"/>
+
+                </RelativeLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Activity_AddRecipe_Ingrdients_layout"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Steps:"
+                    android:textSize="17sp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="16dp"
+                    android:textColor="#FF4D4D"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FF4D4D">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/iconsplus32white"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="30dp"
+                    android:onClick="createNewMethod"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ADD"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="#FFFFFF"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Activity_Add_Recipe_Methods_Layout"
+                android:orientation="vertical"
+                >
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Photo:"
+                android:textSize="17sp"
+                android:layout_margin="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:textColor="#FF4D4D"
+                android:textStyle="bold"
+                />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:src="@drawable/plus_button"
+                android:onClick="openCameraFragment"
+                android:id="@+id/Activity_Add_Recipe_Photo"
+                android:layout_margin="16dp"
+
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Done"
+                android:id="@+id/Activity_AddRecipe_done_button"
+                android:onClick="finishRecipe"
+                android:textColor="#ffffff"
+                android:background="#FF4D4D"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

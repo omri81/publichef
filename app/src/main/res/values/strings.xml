@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SharedRecipes</string>
+    <string name="title_activity_my_recipes">MyRecipes</string>
+    <string-array name="dishes_kinds_array">
+        <item>Recipe type</item>
+        <item>Meat</item>
+        <item>Fish</item>
+        <item>Vegetarian</item>
+        <item>Vegan</item>
+        <item>Dairy</item>
+        <item>Desert</item>
+    </string-array>
+</resources>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "766611861745",
+    "firebase_url": "https://sharedrecipes-65510.firebaseio.com",
+    "project_id": "sharedrecipes-65510",
+    "storage_bucket": "sharedrecipes-65510.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766611861745:android:89d3052dfd8a63ae",
+        "android_client_info": {
+          "package_name": "com.example.bar.sharedrecipes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766611861745-3bsiqe3m04ihhi7dpl4ulns4k9uh5b1n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bar.sharedrecipes",
+            "certificate_hash": "6cf4a1f001f0a4a801bad1d734bfe3782f8e0bc4"
+          }
+        },
+        {
+          "client_id": "766611861745-6hqqcpusip28t6lqm9ehpvtiik71m6b1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdphpT6qvgreec3DgszMO3vUGhnDNT2-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766611861745-6hqqcpusip28t6lqm9ehpvtiik71m6b1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cancel32"
+            android:layout_margin="20dp"
+            android:id="@+id/ingredient_layout_X"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="1"
+            android:textSize="17dp"
+            android:id="@+id/ingredient_layout_counter"
+            android:textColor="#FF4D4D"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="."
+            android:textSize="17dp"
+            android:id="@+id/ingredient_layout_._text_view"
+            android:textColor="#FF4D4D"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:id="@+id/ingredient_layout_edit_text"
+            android:inputType="text"
+            android:textColor="#FF4D4D"
+            android:theme="@style/MyEditTextTheme"
+            android:textColorHint="#FF4D4D"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Quantity:"
+            android:id="@+id/ingredient_layout_quantity"
+            android:textColor="#FF4D4D"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:inputType="text"
+            android:id="@+id/ingredient_layout_quantity_ET"
+            android:textColor="#FF4D4D"
+            android:theme="@style/MyEditTextTheme"
+           />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

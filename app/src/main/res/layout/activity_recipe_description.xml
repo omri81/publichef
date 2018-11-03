@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recipe Description"
+                    style="@style/Base.TextAppearance.AppCompat.Headline"
+                    android:layout_centerInParent="true"
+                    android:textColor="#FF4D4D"
+                    android:textStyle="bold"
+                    />
+            </RelativeLayout>
+
+            <TableRow android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#FF4D4D"/>
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:src="@drawable/photo150"
+                android:id="@+id/Activity_Recipe_Description_Photo"
+                android:layout_margin="16dp"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Chef's Name: "
+                    android:textSize="20dp"
+                    android:id="@+id/name_not_change"
+                    android:textColor="#FF4D4D"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="73dp"
+                    android:text="omri ovadia"
+                    android:textColor="#FF4D4D"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:id="@+id/Activity_Recipe_Description_name"
+
+                    />
+            </RelativeLayout>
+            <TableRow android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FF4D4D"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Recipe's Name: "
+                    android:textSize="20dp"
+                    android:id="@+id/recipe_name_not_change"
+                    android:textColor="#FF4D4D"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="73dp"
+                    android:text="omri ovadia"
+                    android:textColor="#FF4D4D"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:id="@+id/Activity_Recipe_Description_recipe_name"
+                    />
+            </RelativeLayout>
+            <TableRow android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FF4D4D"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Recipe's Type: "
+                    android:textSize="20dp"
+                    android:id="@+id/recipe_dish_kind_not_change"
+                    android:textColor="#FF4D4D"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="73dp"
+                    android:text="omri ovadia"
+                    android:textColor="#FF4D4D"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:id="@+id/Activity_recipe_Description_recipe_dish_kind"
+                    />
+            </RelativeLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF4D4D">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Ingredients: "
+            android:textSize="20dp"
+            android:id="@+id/ingredient_not_change"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:id="@+id/Activity_Recipe_Description_ingredients"
+                    />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Steps To Follow: "
+                    android:textSize="20dp"
+                    android:id="@+id/methods_not_change"
+                    android:textColor="#ff4D4D"/>
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+                android:id="@+id/Activity_Recipe_Description_Methods"
+                android:textStyle="bold"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add To My Recipes"
+                android:background="#ff4D4D"
+                android:textColor="#ffffff"
+                android:id="@+id/Activity_Recipe_Description_AddToMyRecipes"/>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
