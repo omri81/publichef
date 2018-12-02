@@ -28,6 +28,7 @@ public class MyRecipes extends AppCompatActivity {
     private StorageReference storageReference;
     private FirebaseStorage storage;
     private DatabaseReference myRef;
+    private LinearLayoutManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,10 @@ public class MyRecipes extends AppCompatActivity {
         helper = new DatabaseHelper(this);
         db = helper.getReadableDatabase();
         dbw = helper.getWritableDatabase();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        manager = new LinearLayoutManager(this);
+        manager.setReverseLayout(true);
+        manager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(manager);
         adapter = new SqliteRecyclerViewAdapter(getAllItems(),storageReference,urls,this,helper,dbw);
         recyclerView.setAdapter(adapter);
         delete = (Button) findViewById(R.id.Activity_my_recipes_deleteBtn);

@@ -85,7 +85,7 @@ public class RecipeSummery extends AppCompatActivity implements View.OnClickList
             e.printStackTrace();
         }
         Picasso.get().load(uri).into(recipePhoto);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
     }
@@ -133,13 +133,13 @@ public class RecipeSummery extends AppCompatActivity implements View.OnClickList
         uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(RecipeSummery.this, "uploaded successful", Toast.LENGTH_SHORT).show();
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(RecipeSummery.this, "did not upload", Toast.LENGTH_SHORT).show();
-                Log.d("omri",e.getMessage());
+
             }
         });
 
@@ -149,12 +149,7 @@ public class RecipeSummery extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         DatabaseHelper helper = new DatabaseHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
-        LikesDatabaseHelper likesHelper = new LikesDatabaseHelper(this);
-        SQLiteDatabase likeDB = likesHelper.getWritableDatabase();
         String key = myRef.push().getKey();
-        ContentValues likeValues = new ContentValues();
-        likeValues.put(LikesDatabaseHelper.COL_ID,key);
-        likeValues.put(LikesDatabaseHelper.COL_LIKE,0);
         ContentValues values = new ContentValues();
         values.put(DatabaseHelper.COL_CHEF_NAME,recipe.getPersonName());
         values.put(DatabaseHelper.COL_RECIPE_NAME,recipe.getRecipeName());

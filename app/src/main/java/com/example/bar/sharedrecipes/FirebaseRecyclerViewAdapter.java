@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -36,22 +36,19 @@ public class FirebaseRecyclerViewAdapter extends RecyclerView.Adapter<FirebaseRe
     private ArrayList<String> urls;
     private Context context;
     private DatabaseReference myRef;
-    SQLiteDatabase likeDBR;
-    SQLiteDatabase likeDBW;
-    private ArrayList<Integer> likes;
 
 
 
 
-    public FirebaseRecyclerViewAdapter(ArrayList<Recipe> recipes, StorageReference storageRef, ArrayList<String> urls,Context context,DatabaseReference myRef,SQLiteDatabase likeDBR, SQLiteDatabase likeDBW,ArrayList<Integer> likes){
+
+
+    public FirebaseRecyclerViewAdapter(ArrayList<Recipe> recipes, StorageReference storageRef, ArrayList<String> urls,Context context,DatabaseReference myRef){
         this.recipes = recipes;
         this.storageRef = storageRef;
         this.urls = urls;
         this.context = context;
         this.myRef = myRef;
-        this.likeDBR = likeDBR;
-        this.likeDBW = likeDBW;
-        this.likes = likes;
+
 
     }
 
@@ -68,17 +65,13 @@ public class FirebaseRecyclerViewAdapter extends RecyclerView.Adapter<FirebaseRe
         holder.chefName.setText(recipes.get(position).getPersonName());
         holder.recipeName.setText(recipes.get(position).getRecipeName());
         holder.progressBar.setVisibility(View.VISIBLE);
-        holder.likeCounter.setText(recipes.get(position).getLikes()+"");
+       // holder.likeCounter.setText(recipes.get(position).getLikes()+"");
 
 
 
 
 
-        if (!recipes.get(position).getLiked()) {
-            holder.likeBtn.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.rsz_1rsz_like_pressed));
-        }else{
-            holder.likeBtn.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.heartred));
-        }
+
 
         storageRef.child(urls.get(position)).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -107,62 +100,6 @@ public class FirebaseRecyclerViewAdapter extends RecyclerView.Adapter<FirebaseRe
             }
         });
 
-        holder.likeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                    holder.counter = recipes.get(position).getLikes();
-                    holder.counter++;
-                    myRef.child(urls.get(position)).child("likes").setValue(holder.counter);
-                    
-
-                    myRef.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            Toast.makeText(context, recipes.get(position).getLiked()+"", Toast.LENGTH_SHORT).show();
-                            holder.likeCounter.setText(holder.counter + "");
-                            holder.likeBtn.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.heartred));
-                            changeImage(position);
-                            Toast.makeText(context, recipes.get(position).getLiked()+"", Toast.LENGTH_SHORT).show();
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-
-                }
-
-
-
-
-                    /*myRef.child(urls.get(position)).child("likes").addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            long likes = (long) dataSnapshot.getValue();
-                            recipes.get(position).setLikes(likes);
-                            holder.likeCounter.setText(holder.counter +"");
-                            holder.clicked = false;
-
-                        }
-
-
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-                    myRef.child(urls.get(position)).child("likes").setValue(holder.counter);*/
-
-
-                    //holder.likeBtn.setClickable(false);
-
-
-        });
-
     }
 
     @Override
@@ -180,10 +117,10 @@ public class FirebaseRecyclerViewAdapter extends RecyclerView.Adapter<FirebaseRe
         private ImageView iv;
         private TextView chefName, recipeName;
         private ProgressBar progressBar;
-        private ImageView likeBtn;
-        private TextView likeCounter;
+//        private ImageView likeBtn;
+//        private TextView likeCounter;
         private ItemClickListener itemClickListener;
-        private boolean clicked;
+       // private boolean clicked;
         private long counter;
 
         public ViewHolder(View itemView) {
@@ -192,8 +129,8 @@ public class FirebaseRecyclerViewAdapter extends RecyclerView.Adapter<FirebaseRe
             chefName = (TextView) itemView.findViewById(R.id.my_recipes_item_chef_name);
             recipeName = (TextView) itemView.findViewById(R.id.my_recipes_item_recipe_name);
             progressBar = (ProgressBar) itemView.findViewById(R.id.my_recipes_item_progressbar);
-            likeBtn = (ImageView) itemView.findViewById(R.id.recipe_item_like_img);
-            likeCounter = (TextView) itemView.findViewById(R.id.my_recipes_item_likes_counter);
+//            likeBtn = (ImageView) itemView.findViewById(R.id.recipe_item_like_img);
+//            likeCounter = (TextView) itemView.findViewById(R.id.my_recipes_item_likes_counter);
 
             itemView.setOnClickListener(this);
         }

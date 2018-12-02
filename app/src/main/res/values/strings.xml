@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SharedRecipes</string>
+    <string name="app_name">PubliChef</string>
     <string name="title_activity_my_recipes">MyRecipes</string>
     <string-array name="dishes_kinds_array">
         <item>Recipe type</item>

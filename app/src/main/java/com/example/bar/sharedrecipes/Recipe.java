@@ -15,7 +15,6 @@ public class Recipe implements Serializable {
     private String dishKind;
     private String methods;
     private String ingredientString;
-    private long likes;
     private int id;
     private boolean liked;
 
@@ -32,7 +31,7 @@ public class Recipe implements Serializable {
 
     }
 
-    public Recipe(String personName, String recipeName, ArrayList<String> stepsMethod, ArrayList<Ingredient> ingredients, String uri, String dishKind, long likes) {
+    public Recipe(String personName, String recipeName, ArrayList<String> stepsMethod, ArrayList<Ingredient> ingredients, String uri, String dishKind) {
         this.personName = personName;
         this.recipeName = recipeName;
         //Recipe.bitmap = bitmap;
@@ -40,7 +39,7 @@ public class Recipe implements Serializable {
         this.ingredients = ingredients;
         this.uri = uri;
         this.dishKind = dishKind;
-        this.likes = likes;
+
 
 
     }
@@ -88,16 +87,6 @@ public class Recipe implements Serializable {
 
     public String getMethods() {
         return methods;
-    }
-
-    public long getLikes() {
-        return likes;
-    }
-
-
-
-    public void setLikes(long likes) {
-        this.likes = likes;
     }
 
     public int getId() {

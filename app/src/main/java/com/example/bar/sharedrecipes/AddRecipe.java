@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -79,7 +80,6 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
 
         chefsName = (EditText) findViewById(R.id.Activity_AddRecipe_Chef_Name);
         recipeName = (EditText) findViewById(R.id.Activity_AddRecipe_Recipe_Name);
-        Toast.makeText(this, "im here", Toast.LENGTH_SHORT).show();
         photoChanged = false;
 
 
@@ -98,19 +98,6 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
     }
 
     public void createNewIngredient(View view) {
-        /*String ingredientET = "";
-        String quantityET = "";
-        if(ingredients.size() > 0) {
-            ingredientET = ingredients.get(ingredients.size() - 1).ingredientET.getText().toString().trim();
-            quantityET = ingredients.get(ingredients.size() - 1).quantityET.getText().toString().trim();
-        }
-        if (ingredients.size() > 0 &&( !ingredientET.isEmpty()||!quantityET.isEmpty())){
-        String ingredientsText = ingredientET;
-        String ingredientsQuantity = quantityET;
-            Ingredient ingredient = new Ingredient(ingredientsText,ingredientsQuantity);
-            ingredientList.add(ingredient);
-            Toast.makeText(this, ingredientsText, Toast.LENGTH_SHORT).show();
-        }*/
 
         MyIngredientView myView = new MyIngredientView(this);
         ingredientLL.addView(myView);
@@ -120,6 +107,13 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
         myView.ingredientCounterTV.setText("" + ++ingredientCounter);
         myView.cancelBtn.setOnClickListener(this);
         myView.cancelBtn.setTag(ingredientCounter);
+
+        try {
+            InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 
 
@@ -156,15 +150,7 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
     }
 
     public void createNewMethod(View view) {
-     /*   String methodET = "";
-        if(methods.size() > 0) {
-            methodET = methods.get(methods.size() - 1).methodsET.getText().toString().trim();
-        }
-        if (methods.size() > 0 && !methodET.isEmpty()){
-            String method = methodET;
-            methodsList.add(method);
-            Toast.makeText(this, method, Toast.LENGTH_SHORT).show();
-        }*/
+
         MyMethodsStepsView newMethod = new MyMethodsStepsView(this);
         methodsLL.addView(newMethod);
         methods.add(newMethod);
@@ -218,7 +204,7 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
             return false;
         }
         if(bitmap == null){
-            Toast.makeText(this, "bitmap null", Toast.LENGTH_SHORT).show();
+
             return false;
 
         }
@@ -264,7 +250,7 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
 
             dishKind = dishKindSpinner.getSelectedItem().toString();
 
-            finishedRecipe = new Recipe(name,recipe,methodsList,ingredientList,uri,dishKind,0);
+            finishedRecipe = new Recipe(name,recipe,methodsList,ingredientList,uri,dishKind);
 
             Intent intent = new Intent(this,RecipeSummery.class);
             intent.putExtra("recipe",finishedRecipe);
@@ -272,6 +258,8 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
 
 
 
+        }else{
+            Toast.makeText(this, "Missing some details please review your recipe", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -296,7 +284,6 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
     protected void onResume() {
         super.onResume();
         if (done == true) {
-            Toast.makeText(this, "true", Toast.LENGTH_SHORT).show();
             ingredientList.clear();
             methodsList.clear();
         }

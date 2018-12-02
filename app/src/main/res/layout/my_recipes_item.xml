@@ -11,69 +11,72 @@
         android:layout_height="250dp"
         android:layout_margin="8dp"
         android:background="@color/cardview_dark_background"
-        app:cardCornerRadius="5dp"
-        >
+        app:cardCornerRadius="5dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/my_recipes_item_image_view"
-                android:layout_width="316dp"
-                android:layout_height="173dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="6dp" />
+                <ImageView
+                    android:id="@+id/my_recipes_item_image_view"
+                    android:layout_width="316dp"
+                    android:layout_height="173dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6dp" />
 
-            <ProgressBar
-                android:id="@+id/my_recipes_item_progressbar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="71dp"
-                android:paddingBottom="30dp" />
-
-
-
-
-
-
-        </RelativeLayout>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dfdede">
-
-        </TableRow>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/my_recipes_item_chef_name"
+                <ProgressBar
+                    android:id="@+id/my_recipes_item_progressbar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Chef Name"
-                    android:textSize="20dp"
-                    />
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="71dp"
+                    android:paddingBottom="30dp" />
 
-                <!--<TextView
+
+            </RelativeLayout>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dfdede">
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/my_recipes_item_chef_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Chef Name"
+                            android:textSize="20dp"
+                            android:layout_centerInParent="true"
+                            />
+                    </RelativeLayout>
+
+
+                    <!--<TextView
                     android:id="@+id/my_recipes_sign"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,37 +84,46 @@
                     android:text=" -"
                     android:textSize="20dp" />-->
 
-                <TextView
-                    android:id="@+id/my_recipes_item_recipe_name"
-                    android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/my_recipes_item_recipe_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:text="Recipe Name"
+                            android:textSize="20dp"
+                            android:layout_centerInParent="true"/>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Recipe Name"
-                    android:textSize="20dp"
-                    android:layout_marginTop="8dp"/>
-            </LinearLayout>
+                    android:layout_marginTop="10dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <ImageView
+                    <!-- <ImageView
                     android:id="@+id/recipe_item_like_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
                     android:layout_centerInParent="true"
-                     />
+                     />-->
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
 
-                </LinearLayout>
+                    </LinearLayout>
 
-                <TextView
+                    <!--<TextView
                     android:id="@+id/my_recipes_item_likes_counter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,14 +132,13 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="46dp"
                     android:text="0"
-                    android:textSize="25dp" />
+                    android:textSize="25dp" />-->
 
 
+                </RelativeLayout>
 
-            </RelativeLayout>
 
-
-        </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

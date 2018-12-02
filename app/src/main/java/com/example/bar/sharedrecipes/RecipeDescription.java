@@ -1,8 +1,11 @@
 package com.example.bar.sharedrecipes;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -77,6 +80,15 @@ public class RecipeDescription extends AppCompatActivity {
                 Toast.makeText(RecipeDescription.this, "Recipe Added To My Recipes", Toast.LENGTH_SHORT).show();
             }
         });
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RecipeDescription.this,BiggerPictureActivity.class);
+                intent.putExtra("downloadPic",downloadUrl);
+                intent.putExtra("recipe",recipe);
+                startActivity(intent);
+            }
+        });
     }
 
     private String ingredientsToString() {
@@ -99,12 +111,24 @@ public class RecipeDescription extends AppCompatActivity {
     }
 
     private void setImagefromFirebase(){
-
-        storageReference.child(downloadUrl).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(iv);
-            }
-        });
+        if(isOnline()) {
+            storageReference.child(downloadUrl).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Picasso.get().load(uri).into(iv);
+                }
+            });
+        }else{
+            iv.setImageResource(R.drawable.icons8wifioff100);
+        }
+    }
+    private boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -47,9 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<Recipe> recipes;
     private ArrayList<String> urls;
     private FirebaseStorage storage;
-    private LikesDatabaseHelper likeHelper;
-    private SQLiteDatabase likeDB;
-    private SQLiteDatabase likeDBw;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,9 +80,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         helper = new DatabaseHelper(this);
         db = helper.getReadableDatabase();
         recyclerView = (RecyclerView) findViewById(R.id.Activity_Main_Recycler_View);
-        likeHelper = new LikesDatabaseHelper(this);
-        likeDB = helper.getReadableDatabase();
-        likeDBw = helper.getWritableDatabase();
         getAllRecipes();
 
     }
@@ -119,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 recipes = new ArrayList<Recipe>();
                 urls = new ArrayList<String>();
-                //  Toast.makeText(MainActivity.this, recipes.size() + "", Toast.LENGTH_SHORT).show();
+
 
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Recipe recipe = dataSnapshot1.getValue(Recipe.class);
@@ -131,9 +126,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     manger.setStackFromEnd(true);
                     manger.setReverseLayout(true);
                     recyclerView.setLayoutManager(manger);
-                    adapter = new FirebaseRecyclerViewAdapter(recipes, storageReference, urls, MainActivity.this, myRef, likeDB, likeDBw);
+                    adapter = new FirebaseRecyclerViewAdapter(recipes, storageReference, urls, MainActivity.this, myRef);
                     recyclerView.setAdapter(adapter);
-                    Toast.makeText(MainActivity.this, "everything", Toast.LENGTH_SHORT).show();
+
 
                 }
             }
@@ -166,24 +161,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public ArrayList<Integer> isliked() {
 
-        ArrayList<Integer> likes = new ArrayList<>();
-        Cursor cursor = likeDB.query(LikesDatabaseHelper.TABLE_NAME,
-                new String[]{"liked"},
-                null,
-                null,
-                null,
-                null,
-                null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                int likecounter = cursor.getColumnIndex(LikesDatabaseHelper.COL_LIKE);
-                likes.add(likecounter);
-            } while (cursor.moveToNext());
-        }
-        return likes;
-    }
 }
 

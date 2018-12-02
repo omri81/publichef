@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bar.sharedrecipes">
+    package="com.example.bar.sharedrecipes"
+    android:versionCode="1"
+    android:versionName="@string/app_name">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -8,13 +10,15 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/my_logo_2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:roundIcon="@mipmap/my_logo_round2"
+        >
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.bar.fileprovider3"
@@ -39,11 +43,13 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".RecipeSummery"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait" />
         <activity android:name=".MyRecipes" />
         <activity android:name=".RecipeDescription" />
         <activity android:name=".NoInternet" />
+        <activity android:name=".BiggerPictureActivity"></activity>
+
     </application>
+
 
 </manifest>
